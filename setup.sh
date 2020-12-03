@@ -8,7 +8,7 @@ pip install --upgrade pip
 pip3 install --upgrade --use-feature=2020-resolver setuptools
 pip3 install numpy==1.19.0
 
-sudo apt-get install -y libhdf5-dev libc-ares-dev libeigen3-dev gcc gfortran python-dev libgfortran5 libatlas3-base libatlas-base-dev libopenblas-dev libopenblas-base libblas-dev liblapack-dev cython libatlas-base-dev openmpi-bin libopenmpi-dev python3-dev
+sudo apt-get install -y libhdf5-dev libc-ares-dev libeigen3-dev gcc gfortran python-dev libgfortran5 libatlas3-base libatlas-base-dev libopenblas-dev libopenblas-base libblas-dev liblapack-dev cython libatlas-base-dev openmpi-bin libopenmpi-dev python3-dev vim
 
 # Install tensorflow-related python libraries
 pip3 install keras_applications==1.0.8 --no-deps
