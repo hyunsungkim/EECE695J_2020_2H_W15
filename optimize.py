@@ -136,7 +136,6 @@ print(f"MODEL\t\tSIZE(B)\tACCURACY")
 print(f"Original model\t {size_base:4d}\t {accuracy_base*100:.2f}%")
 print(f"Your model\t {size:4d}\t {accuracy*100:.2f}%")
 print()
-print(f"Pruning ratio: \t{drop_ratio*100:3.2f}%")
 if(my_model.quantized):
     print(f"Quantization: \t({my_model.intbit+my_model.fracbit},{my_model.intbit},{my_model.fracbit})")
 else:
