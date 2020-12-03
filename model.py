@@ -50,7 +50,8 @@ class myModel(tf.keras.Model):
         if(intbit == None and fracbit == None):
             print("Skipping quantization")
             return
-        assert ((intbit+fracbit) % 8 == 0) and (intbit+fracbit <= 32), "Invalid bitwidth, only 8-bit, 16-bit, and 32-bit are allowed"
+        #assert ((intbit+fracbit) % 8 == 0) and (intbit+fracbit <= 32), "Invalid bitwidth, only 8-bit, 16-bit, and 32-bit are allowed"
+        assert (intbit+fracbit <= 32), "Invalid bitwidth. Bitwidth must be smaller than 32-bits"
         self.intbit = intbit
         self.fracbit = fracbit
         for layer in self.classifier:
