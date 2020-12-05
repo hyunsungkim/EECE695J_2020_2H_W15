@@ -1,14 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras import datasets
 import matplotlib.pyplot as plt
 from model import myModel
+from utils import plot_weight_dist
 import os
 import copy
 
@@ -16,28 +11,6 @@ import copy
 os.environ["TF_FORCE_GPU_ALLOW_GROWTH"] = "true"
 tf.random.set_seed(0)
 BATCH_SIZE = 16
-
-
-# In[ ]:
-
-
-def plot_weight_dist(w_dict, b_dict):
-    """
-        This function plots distribution of parameters. The
-        second subplot describes the histogram of the absolute
-        values.
-    """
-    w = []
-    for item in w_dict.values():
-        w.extend(item.ravel())
-
-    for item in b_dict.values():
-        w.extend(item.ravel())
-    
-    fig, [ax1, ax2] = plt.subplots(2, 1, figsize=(5,5))
-    ax1.set_title('Weight distribution')
-    ax1.hist(np.array(w).flatten(), bins=100)
-    ax2.hist(np.array(np.abs(w)).flatten(), bins=100)
 
 # Load the testing dataset and the construct a dataloader
 data = np.load('./data/testset.npz')
@@ -65,9 +38,6 @@ loss_base, accuracy_base = model.evaluate(test_dataset)
 # Load parameters into dictionaries, which will be modified by you
 w_dict, b_dict = model.get_params()
 plot_weight_dist(w_dict, b_dict) 
-
-
-# In[ ]:
 
 
 w_dict_new = copy.deepcopy(w_dict)
@@ -145,10 +115,3 @@ print(f"Accuracy drop: \t{(accuracy_base-accuracy)*100:.2f}%")
 print("="*49)
 
 model.save_weights(f"./models/student/model_{name}_{id}.ckpt")
-
-
-# In[ ]:
-
-
-
-
